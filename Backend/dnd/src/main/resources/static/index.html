@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D App</title>
+</head>
+<body>
+
+<h2>Sign Up</h2>
+<form id="signupForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username"><br><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"><br><br>
+    <button type="button" onclick="signUp()">Sign Up</button>
+</form>
+
+<h2>Sign In</h2>
+<form id="signinForm">
+    <label for="signinUsername">Username:</label>
+    <input type="text" id="signinUsername" name="username"><br><br>
+    <label for="signinPassword">Password:</label>
+    <input type="password" id="signinPassword" name="password"><br><br>
+    <button type="button" onclick="signIn()">Sign In</button>
+</form>
+
+<script>
+    function signUp() {
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        fetch('/api/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, email, password }),
+        })
+        .then(response => response.text())
+        .then(data => alert(data))
+        .catch(error => console.error('Error:', error));
+    }
+
+    function signIn() {
+        const username = document.getElementById('signinUsername').value;
+        const password = document.getElementById('signinPassword').value;
+
+        fetch(`/api/signin?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`, {
+            method: 'POST',
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            } else {
+                throw new Error('Sign-in failed');
+            }
+        })
+        .then(data => alert(data))
+        .catch(error => alert(error.message));
+    }
+</script>
+
+</body>
+</html>
