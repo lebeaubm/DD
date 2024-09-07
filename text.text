@@ -1,6 +1,25 @@
-Backend >DND>Backend>dnd 
+ >DND>Backend>dnd 
 
 ./mvnw spring-boot:run
 
 
 PS C:\Users\lebea\OneDrive\Desktop\gitt\java\DND\Frontend\dnd-social-media> npm start
+
+
+
+terminal Backend
+psql -U postgres -d dndsocialmedia
+
+
+
+
+
+
+
+To see characters
+http://localhost:8081/api/characters/user/testUser
+
+
+
+
+
