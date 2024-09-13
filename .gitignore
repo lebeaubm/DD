@@ -11,3 +11,8 @@ Frontend/node_modules/
 # Ignore build directories (e.g., for React or Vue.js apps)
 build/
 dist/
+
+
+
+.cache/
+

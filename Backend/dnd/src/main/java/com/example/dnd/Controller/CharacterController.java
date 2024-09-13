@@ -27,17 +27,45 @@ public class CharacterController {
         this.characterService = characterService;
     }
 
-   @PostMapping("/create")
+    @PostMapping("/create")
 public ResponseEntity<Character> createCharacter(@RequestBody CharacterRequest request) {
     Character createdCharacter = characterService.saveCharacter(
         request.getName(),
         request.getRace(),
         request.getCharClass(),
         request.getLevel(),
-        request.getUsername()  // Fetches the username to link the character
+        request.getUsername(),
+        request.getStrength(),
+        request.getDexterity(),
+        request.getConstitution(),
+        request.getIntelligence(),
+        request.getWisdom(),
+        request.getCharisma(),
+        request.getHitPoints(),
+        request.getArmorClass(),
+        request.getInitiative(),
+        request.getBackground(),
+        request.getEquipment()
     );
     return ResponseEntity.ok(createdCharacter);
 }
+
+
+
+
+
+
+//    @PostMapping("/create")
+// public ResponseEntity<Character> createCharacter(@RequestBody CharacterRequest request) {
+//     Character createdCharacter = characterService.saveCharacter(
+//         request.getName(),
+//         request.getRace(),
+//         request.getCharClass(),
+//         request.getLevel(),
+//         request.getUsername()  // Fetches the username to link the character
+//     );
+//     return ResponseEntity.ok(createdCharacter);
+// }
 
     /**
      * This endpoint retrieves all characters for a specific user.

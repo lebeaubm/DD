@@ -9,7 +9,8 @@ PS C:\Users\lebea\OneDrive\Desktop\gitt\java\DND\Frontend\dnd-social-media> npm 
 
 terminal Backend
 psql -U postgres -d dndsocialmedia
-
+SELECT * FROM characters;
+\d characters
 
 
 
@@ -17,9 +18,14 @@ psql -U postgres -d dndsocialmedia
 
 
 To see characters
-http://localhost:8081/api/characters/user/testUser
+http://localhost:8081/api/characters
 
 
+git add .
+git commit -m
+git push -u origin master
 
+
+remove lock rm -f .git/index.lock
 
 
