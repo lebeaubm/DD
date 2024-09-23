@@ -6,8 +6,33 @@ import SignUpPage from './pages/SignUpPage';
 import SignInPage from './pages/SignInPage';
 import CharacterDetail from "./pages/CharacterDetail";
 import BattleSimulator from './components/BattleSimulator';
+import TeamSelectionPage from './pages/TeamSelectionPage';
+import BattlePage from './pages/BattlePage';
+import BattleLogPage from './pages/BattleLogPage'; 
 
 function App() {
+    
+    const handleTeamSubmit = (team1, team2) => {
+        // Send team data to backend for battle simulation
+        fetch('http://localhost:8081/api/battle/team', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ team1, team2 })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Redirect to battle page with battle log or show it here
+            console.log('Battle result:', data);
+        })
+        .catch(error => {
+            console.error('Error starting the battle:', error);
+        });
+    };
+    
+    
+    
     return (
         <Router>
             <Routes>
@@ -18,6 +43,9 @@ function App() {
                 <Route path="/characters" element={<CharacterPage />} />
                 <Route path="/characters/:id" element={<CharacterDetail />} /> {/* New route for character sheet */}
                 <Route path="/battle-simulator" element={<BattleSimulator />} />
+                <Route path="/team-selection" element={<TeamSelectionPage onTeamSubmit={handleTeamSubmit} />} />
+                <Route path="/battle" element={<BattlePage />} /> {/* Battle log page */}
+                <Route path="/battle-log" element={<BattleLogPage />} />
             </Routes>
         </Router>
     );

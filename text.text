@@ -3,7 +3,7 @@
 ./mvnw spring-boot:run
 
 
-PS C:\Users\lebea\OneDrive\Desktop\gitt\java\DND\Frontend\dnd-social-media> npm start
+PS C:\Users\lebea\OneDrive\Desktop\gitt\java\DND\Frontend\> npm start
 
 
 

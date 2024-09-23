@@ -202,4 +202,21 @@ public class Character {
     public void setEquipment(String equipment) {
         this.equipment = equipment;
     }
+
+    //finish later
+    public int getAttackBonus() {
+        //return getModifier()+5;
+        return 20;
+        //throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public int getDamage() {
+        return getStrength();
+        //throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    private int getModifier() {
+        return (getStrength() - 10) / 2;
+        //throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
