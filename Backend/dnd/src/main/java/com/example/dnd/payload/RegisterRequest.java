@@ -1,42 +1,14 @@
-package com.example.dnd.model;
+package com.example.dnd.payload;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "users")
-public class User {
-
-   
-
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class RegisterRequest {
     private String username;
     private String email;
     private String password;
-    
 
-
-
-
-
-
-
-    
-
-    // Getters and Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public RegisterRequest(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
     }
 
     public String getUsername() {
